@@ -4,6 +4,17 @@
 template <typename T>
 void CP::vector<T>::compress() {
     //write your code here
+    if (mSize < mCap) {
+        T *newData = new T[mSize]();
+        for (size_t i = 0; i < mSize; i++) {
+            newData[i] = mData[i];
+        }
+
+        delete[] mData;
+        mData = newData;
+        mCap = mSize;
+        
+    }
 }
 
 #endif
